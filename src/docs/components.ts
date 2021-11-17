@@ -21,16 +21,6 @@ export default{
                     },
                 }
             },
-            TodoInput:{
-                type:'object',
-                properties:{
-                    title:{
-                        type:'string',
-                        description:"Todo's title",
-                        example:"Coding in JavaScript"
-                    },
-                }
-            }
         }
     }
 }

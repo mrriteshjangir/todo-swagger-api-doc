@@ -8,6 +8,8 @@ import docs from './docs';
 import todoRoute from './routes/route';
 const router = express();
 
+import swaggerCss from './swaggerCss/swagger-css'
+
 // database connections
 var db:string = "mongodb://localhost:27017/todo";
 mongoose.connect(db);
@@ -27,7 +29,11 @@ app.use(express.urlencoded({extended:false}));
 /** Routes go here */
 app.use('/api/',[todoRoute]);
 
-app.use('/api-docs',swaggerUI.serve,swaggerUI.setup(docs));
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(docs, { 
+    customCss: swaggerCss,
+    customSiteTitle: "Pickcel Digital Signage",
+    customfavIcon: "https://pickcel.com/assets/img/favicon/favicon-32x32.png"
+}));
 
 const hostname = '127.0.0.1';
 
